@@ -29,9 +29,12 @@ const NewTicketPage = () => {
     }));
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(createTicket(newTicket));
+    const result = await dispatch(createTicket(newTicket));;
+    if (createTicket.fulfilled.match(result)) {
+      navigate("/"); 
+    } 
     setNewTicket({ title: "", complaint: "" });
   };
 

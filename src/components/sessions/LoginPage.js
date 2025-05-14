@@ -100,7 +100,6 @@ const LoginPage = ({ loading, signedIn }) => {
 
   const signIn = async (e) => {
     e.preventDefault();
-    console.log(userDetails)
     const result = await dispatch(handleSignIn(userDetails));
     if (handleSignIn.fulfilled.match(result)) {
       navigate("/"); // login success

@@ -39,6 +39,7 @@ const TicketDetails = () => {
   }, [dispatch, id]);
 
   const handleCloseTicket = () => {
+    if(ticket.agent.id !== user.id)
     dispatch(closeTicket({ ticketId: id, status: "closed"}));
   };
 
