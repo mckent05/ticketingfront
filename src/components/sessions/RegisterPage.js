@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { makeStyles } from "@mui/styles";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { handleSignUp } from "../../store/sessions/thunkCreators";
 import { useNavigate } from "react-router-dom";
 import {
@@ -15,77 +13,10 @@ import {
 } from "@mui/material";
 import Input from "./Input";
 import Navigation from "./Navigation";
-import SideBanner from "./SideBanner";
 import Submit from "./SubmitBtn";
 import Title from "./Title";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    margin: 0,
-    position: "relative",
-    width: "100vw",
-    height: "auto",
-    backgroundColor: "#fff",
-    // [theme.breakpoints.up("lg")]: {
-    //   flexDirection: "row",
-    //   height: "100vh",
-    // },
-  },
-  formCont: {
-    width: "100%",
-    height: "70vh",
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 5,
-    rowGap: 20,
-    // [theme.breakpoints.up("lg")]: {
-    //   width: "58%",
-    //   height: "95%",
-    // },
-  },
-  form: {
-    position: "relative",
-    width: "90%",
-    margin: "0 auto",
-    // [theme.breakpoints.up("md")]: {
-    //   width: "55%",
-    //   padding: 15,
-    // },
-  },
-  input: {
-    position: "relative",
-    width: "100%",
-    marginBottom: 8,
-    "& .MuiFilledInput-root": {
-      backgroundColor: "#fff",
-      color: "#000000",
-    },
-    // [theme.breakpoints.up("lg")]: {
-    //   marginBottom: 15,
-    // },
-    "& .MuiFormLabel-root": {
-      fontFamily: "QuickSand, sans-serif",
-      fontStyle: "normal",
-      fontWeight: 300,
-      fontSize: 20,
-    },
-    "& .MuiTypography-root": {
-      position: "absolute",
-      right: 0,
-      bottom: "35%",
-      color: "#f9a109",
-      fontFamily: "QuickSand, sans-serif",
-      fontStyle: "normal",
-      fontWeight: 600,
-      fontSize: 12,
-    },
-  },
-}));
-
 const RegisterPage = () => {
-  const classes = useStyles();
   const [formErrorMessage, setFormErrorMessage] = useState({});
   const sessionDetails = useSelector((state) => state.sessions);
   const { isLoading } = sessionDetails;
@@ -136,61 +67,85 @@ const RegisterPage = () => {
   }, [formErrorMessage]);
 
   return (
-    <Grid container className={classes.root}>
-      <SideBanner />
-      <Box className={classes.formCont}>
+    <Grid
+      container
+      sx={{ flexDirection: "row", width: "100vw", minHeight: "100vh" }}
+    >
+      <Box
+        sx={{
+          width: { xs: "100%", lg: "60%" },
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 4,
+          py: 6,
+          margin: "auto",
+        }}
+      >
         <Navigation
           text="Already have an account?"
           push="login"
           btnText="Login"
         />
-        <form onSubmit={handleRegister} className={classes.form}>
+
+        <Box
+          component="form"
+          onSubmit={handleRegister}
+          sx={{
+            width: "100%",
+            maxWidth: 600,
+            mt: 3,
+            backgroundColor: "#fff",
+          }}
+        >
           <Title text="Create an account." />
-          <Grid>
-            <Input
-              label="First Name"
-              name="firstName"
-              type="text"
-              handle={handleInput}
-            />
-            <Input
-              label="Last Name"
-              name="lastName"
-              type="text"
-              handle={handleInput}
-            />
-            <Input
-              label="Username"
-              name="username"
-              type="text"
-              handle={handleInput}
-            />
-            <Input
-              label="E-mail address"
-              name="email"
-              type="email"
-              handle={handleInput}
-            />
-            <Grid>
-              <FormControl
-                className={classes.input}
-                error={!!formErrorMessage.confirmPassword}
-              >
-                <TextField
-                  label="Password"
-                  type="password"
-                  inputProps={{ minLength: 6 }}
-                  name="password"
-                  onChange={handleInput}
-                  required
-                />
-              </FormControl>
+          <Grid container spacing={2} mt={1}>
+            <Grid item xs={12} sm={6}>
+              <Input
+                label="First Name"
+                name="firstName"
+                type="text"
+                handle={handleInput}
+              />
             </Grid>
-            <Grid>
-              <FormControl
-                className={classes.input}
-                error={!!formErrorMessage.confirmPassword}
-              >
+            <Grid item xs={12} sm={6}>
+              <Input
+                label="Last Name"
+                name="lastName"
+                type="text"
+                handle={handleInput}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Input
+                label="Username"
+                name="username"
+                type="text"
+                handle={handleInput}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Input
+                label="E-mail address"
+                name="email"
+                type="email"
+                handle={handleInput}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                label="Password"
+                fullWidth
+                type="password"
+                inputProps={{ minLength: 6 }}
+                name="password"
+                onChange={handleInput}
+                required
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControl fullWidth error={!!formErrorMessage.confirmPassword}>
                 <TextField
                   label="Confirm Password"
                   type="password"
@@ -204,6 +159,9 @@ const RegisterPage = () => {
                 </FormHelperText>
               </FormControl>
             </Grid>
+          </Grid>
+
+          <Box mt={2}>
             <FormControlLabel
               control={
                 <Checkbox
@@ -215,9 +173,12 @@ const RegisterPage = () => {
               }
               label="Sign up as an agent?"
             />
+          </Box>
+
+          <Box mt={3}>
             <Submit title="Register" loading={isLoading} />
-          </Grid>
-        </form>
+          </Box>
+        </Box>
       </Box>
     </Grid>
   );

@@ -15,13 +15,10 @@ const userSlice = createSlice({
     }),
     getUser: (state, action) => ({
       ...state,
-      user: {...action.payload},
+      user: { ...action.payload },
     }),
   },
 });
 
-export const {
-  handleLoading,
-  getUser,
-} = userSlice.actions;
+export const { handleLoading, getUser } = userSlice.actions;
 export default userSlice.reducer;

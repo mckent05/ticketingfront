@@ -21,11 +21,11 @@ const ticketSlice = createSlice({
     },
     addComment: (state, action) => {
       if (state.ticket && Array.isArray(state.ticket.comments)) {
-        if(state.ticket.status === "open") {
+        if (state.ticket.status === "open") {
           state.ticket = {
             ...state.ticket,
-            status: "in_progress"
-          }
+            status: "in_progress",
+          };
         }
         state.ticket.comments.push(action.payload);
       } else if (state.ticket) {
@@ -42,8 +42,8 @@ const ticketSlice = createSlice({
       state.ticket = updatedTicket;
     },
     addTicket: (state, action) => ({
-     ...state,
-     tickets: [...state.tickets, action.payload]
+      ...state,
+      tickets: [...state.tickets, action.payload],
     }),
   },
 });

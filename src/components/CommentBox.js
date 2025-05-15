@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postTicketComment } from "../store/tickets/thunkCreators";
-import {
-  Box,
-  TextField,
-  IconButton,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Box, TextField, IconButton, Paper, Typography } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
 const CommentBox = ({ ticketId }) => {

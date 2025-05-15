@@ -1,43 +1,44 @@
-import { handleLoading, getUser } from './userSlice'
-import { getToken, baseURL } from '../utils/sessions'
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { handleLoading, getUser } from "./userSlice";
+import { getToken, baseURL } from "../utils/sessions";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const userQuery = `query {
   user {
     id
     email
+    username
     role
   }
-}`
+}`;
 
 export const fetchUserProfile = createAsyncThunk(
-  'get/user',
+  "get/user",
   async (_, { dispatch, rejectWithValue }) => {
-    const token = getToken()
-    dispatch(handleLoading(true))
+    const token = getToken();
+    dispatch(handleLoading(true));
 
     try {
       const response = await fetch(`${baseURL}/graphql`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `${token}`,
         },
         body: JSON.stringify({ query: userQuery }),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (data.errors) {
-        throw new Error(data.errors[0].message)
+        throw new Error(data.errors[0].message);
       }
 
-      dispatch(getUser(data.data.user))
-      return data.data.user
+      dispatch(getUser(data.data.user));
+      return data.data.user;
     } catch (error) {
-      return rejectWithValue(error.message)
+      return rejectWithValue(error.message);
     } finally {
-      dispatch(handleLoading(false))
+      dispatch(handleLoading(false));
     }
-  },
-)
+  }
+);

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Paper,
-} from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 
 const CommentsSection = ({ comments, currentUserId }) => {
   return (
@@ -17,7 +13,7 @@ const CommentsSection = ({ comments, currentUserId }) => {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          width: "100%", 
+          width: "100%",
           minHeight: "200px",
         }}
       >
@@ -48,7 +44,11 @@ const CommentsSection = ({ comments, currentUserId }) => {
                 >
                   <Typography
                     variant="body2"
-                    sx={{ fontWeight: "bold", mb: 0.5, color: "text.secondary" }}
+                    sx={{
+                      fontWeight: "bold",
+                      mb: 0.5,
+                      color: "text.secondary",
+                    }}
                   >
                     {comment.user.role === "agent"
                       ? `Agent-${comment.user.username}`

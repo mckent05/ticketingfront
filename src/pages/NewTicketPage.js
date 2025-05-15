@@ -15,9 +15,17 @@ import SendIcon from "@mui/icons-material/Send";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createTicket } from "../store/tickets/thunkCreators";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+const instance = axios.create();
 
 const NewTicketPage = () => {
-  const [newTicket, setNewTicket] = useState({ title: "", complaint: "" });
+  const [newTicket, setNewTicket] = useState({
+    title: "",
+    complaint: "",
+    image: null,
+  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -29,13 +37,40 @@ const NewTicketPage = () => {
     }));
   };
 
+  const uploadPicture = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "sd31ytp8");
+    const { data } = await instance.post(
+      "https://api.cloudinary.com/v1_1/duj88gras/image/upload",
+      formData
+    );
+    return data;
+  };
+
+  const handleFileChange = async (e) => {
+    const img = e.target.files[0];
+    const response = await uploadPicture(img);
+    if (response.url) {
+      toast.success("Image uploaded!");
+      setNewTicket((prev) => ({
+        ...prev,
+        image: response.url,
+      }));
+    } else {
+      toast.error("Error uploading image");
+    }
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    const result = await dispatch(createTicket(newTicket));;
+
+    const result = await dispatch(createTicket(newTicket));
     if (createTicket.fulfilled.match(result)) {
-      navigate("/"); 
-    } 
-    setNewTicket({ title: "", complaint: "" });
+      navigate("/");
+    }
+
+    setNewTicket({ title: "", complaint: "", attachment: null });
   };
 
   return (
@@ -79,7 +114,7 @@ const NewTicketPage = () => {
 
             <Grid item xs={12}>
               <Typography variant="body2" gutterBottom>
-                Upload File (Only .doc, .docx, .pdf, .png, .jpg below 2MB)
+                Upload File (Only .png, .jpg below 2MB)
               </Typography>
               <Button
                 variant="outlined"
@@ -87,14 +122,26 @@ const NewTicketPage = () => {
                 startIcon={<UploadFileIcon />}
               >
                 Choose File
-                <input type="file" hidden />
+                <input
+                  type="file"
+                  name="attachment"
+                  accept=".png,.jpg"
+                  onChange={handleFileChange}
+                  hidden
+                />
               </Button>
               <Typography variant="caption" display="block" mt={1}>
                 No file chosen
               </Typography>
             </Grid>
 
-            <Grid item xs={12} width="100%" display="flex" justifyContent="space-between">
+            <Grid
+              item
+              xs={12}
+              width="100%"
+              display="flex"
+              justifyContent="space-between"
+            >
               <Button
                 variant="outlined"
                 startIcon={<ArrowBackIcon />}

@@ -8,7 +8,9 @@ const Header = ({ role }) => {
         {role === "agent" ? "Agent" : "Customer"} Dashboard
       </Typography>
       <Typography variant="h6" gutterBottom color="text.secondary">
-        Available Support Tickets
+        {role === "agent"
+          ? "All Available Support Tickets"
+          : "Your support Tickets"}
       </Typography>
       <Typography variant="body1" color="text.secondary">
         Click on a row to view the details of the support ticket.

@@ -1,48 +1,40 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
-import { Grid, Button } from "@mui/material";
-
-const useStyles = makeStyles(() => ({
-  btnCont: {
-    position: "relative",
-    width: "100%",
-    height: "100%",
-    margin: "25px 0 10px 0",
-  },
-  submitBtn: {
-    position: "absolute",
-    width: 160,
-    backgroundColor: "#f9a109",
-    borderRadius: 3,
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: 700,
-    fontFamily: "QuickSand, sans-serif",
-    height: 56,
-    left: "50%",
-    transform: "translateX(-50%)",
-    marginTop: "15px",
-    "&:hover": {
-      backgroundColor: "#fff",
-      color: "#f9a109",
-    },
-  },
-}));
+import { Box, Button } from "@mui/material";
 
 const Submit = ({ title, loading }) => {
-  const classes = useStyles();
   return (
-    <Grid className={classes.btnCont}>
+    <Box
+      sx={{
+        width: "100%",
+        mt: 3,
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <Button
         type="submit"
-        className={classes.submitBtn}
         variant="contained"
         size="large"
-        disabled={loading ? true : false}
+        disabled={loading}
+        sx={{
+          width: 160,
+          height: 56,
+          fontWeight: 700,
+          fontSize: 16,
+          fontFamily: "QuickSand, sans-serif",
+          backgroundColor: "#f9a109",
+          color: "#fff",
+          borderRadius: 3,
+          textTransform: "none",
+          "&:hover": {
+            backgroundColor: "#fff",
+            color: "#f9a109",
+          },
+        }}
       >
         {title}
       </Button>
-    </Grid>
+    </Box>
   );
 };
 

@@ -23,7 +23,7 @@ const sessionSlice = createSlice({
     userSignIn: (state) => ({
       ...state,
       isSignedIn: !!getToken(),
-      isSignedOut: false
+      isSignedOut: false,
     }),
     userSignOut: (state) => ({
       ...state,

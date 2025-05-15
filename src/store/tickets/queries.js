@@ -7,11 +7,13 @@ const ticketsQuery = `query {
     agent {
       id
       username
+      email
     }
     customer {
       id
       username  
     }
+    image
   }
 }`;
 
@@ -22,6 +24,11 @@ const ticketQuery = `
       title
       complaint
       status
+      agent {
+        id
+        username
+        email
+      }
       comments {
         id
         content
@@ -32,6 +39,7 @@ const ticketQuery = `
           role
         }
       }
+      image
     }
   }
 `;
@@ -46,13 +54,15 @@ const addTicketQuery = `
     agent {
       id
       username
+      email
     }
     customer {
       id
       username
     }
+    image
   }
-}`
+}`;
 
 const commentMutation = `
   mutation AddComment($input: AddCommentInput!) {
@@ -66,7 +76,7 @@ const commentMutation = `
       role
     }
   }
-}`
+}`;
 
 const updateTicketQuery = `
   mutation UpdateTicketStatus($input: UpdateTicketStatusInput!) {
@@ -85,8 +95,22 @@ const updateTicketQuery = `
           role
         }
       }
+      image
     }
   }
 `;
 
-export { ticketsQuery, ticketQuery, commentMutation, addTicketQuery, updateTicketQuery}
+const csvQuery = `
+  query {
+    csv
+  }
+`;
+
+export {
+  ticketsQuery,
+  ticketQuery,
+  commentMutation,
+  addTicketQuery,
+  updateTicketQuery,
+  csvQuery,
+};

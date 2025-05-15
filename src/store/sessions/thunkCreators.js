@@ -6,7 +6,7 @@ import {
 } from "./sessionSlice";
 import { clearSession, getToken, baseURL } from "../utils/sessions";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 export const handleSignIn = createAsyncThunk(
   "user/login",
@@ -27,7 +27,9 @@ export const handleSignIn = createAsyncThunk(
       localStorage.setItem("user-token", JSON.stringify(token));
       localStorage.setItem("session", true);
       dispatch(userSignIn());
-      toast.success(response.message)
+      toast.success(response.message);
+    } else {
+      toast.error(response.message);
     }
     dispatch(handleLoading(false));
   }
@@ -58,10 +60,10 @@ export const handleSignUp = createAsyncThunk(
     const serverResponse = await postDetails.json();
     if (serverResponse.status === 200) {
       dispatch(userSignUp(true));
-      toast.success(serverResponse.message)
+      toast.success(serverResponse.message);
     } else {
       dispatch(userSignUp(false));
-      toast.error(serverResponse.message)
+      toast.error(serverResponse.message);
     }
     dispatch(handleLoading(false));
   }
@@ -82,7 +84,7 @@ export const handleSignOut = createAsyncThunk(
     const response = await details.json();
     dispatch(userSignOut());
     clearSession();
-    toast.success(response.message)
+    toast.success(response.message);
     dispatch(handleLoading(false));
   }
 );

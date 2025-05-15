@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Outlet } from "react-router-dom";
 
 const TicketPage = () => {
@@ -6,7 +6,7 @@ const TicketPage = () => {
     <div>
       <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default TicketPage
+export default TicketPage;

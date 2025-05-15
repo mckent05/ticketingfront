@@ -1,8 +1,22 @@
-import { handleLoading, getTickets, addTicket, getTicket, addComment, updateTicket } from "./ticketSlice";
-import { ticketQuery, ticketsQuery, commentMutation, updateTicketQuery, addTicketQuery } from "./queries";
+import {
+  handleLoading,
+  getTickets,
+  addTicket,
+  getTicket,
+  addComment,
+  updateTicket,
+} from "./ticketSlice";
+import {
+  ticketQuery,
+  ticketsQuery,
+  commentMutation,
+  updateTicketQuery,
+  addTicketQuery,
+  csvQuery,
+} from "./queries";
 import { getToken, baseURL } from "../utils/sessions";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 export const fetchTickets = createAsyncThunk(
   "get/tickets",
@@ -72,9 +86,9 @@ export const fetchTicket = createAsyncThunk(
 );
 
 export const createTicket = createAsyncThunk(
-  "ticket/comment",
+  "new/ticket",
   async (newTicket, { dispatch, rejectWithValue }) => {
-    const { title, complaint } = newTicket
+    const { title, complaint, image } = newTicket;
     const token = getToken();
 
     // dispatch(handleLoading(true));
@@ -88,31 +102,31 @@ export const createTicket = createAsyncThunk(
         },
         body: JSON.stringify({
           query: addTicketQuery,
-          variables: { input: { title, complaint } },
+          variables: { input: { title, complaint, image } },
         }),
       });
- 
+
       const data = await response.json();
 
       if (data.errors) {
-        const error = data.errors[0].message
-        toast.error(error)
+        const error = data.errors[0].message;
+        toast.error(error);
         throw new Error(error);
       }
 
       dispatch(addTicket(data.data.createTicket));
-      toast.success("New supportTicket Created!")
+      toast.success("New supportTicket Created!");
       return data.data.createTicket;
     } catch (error) {
       return rejectWithValue(error.message);
-    } 
+    }
   }
-)
+);
 
 export const postTicketComment = createAsyncThunk(
   "ticket/comment",
   async (comment, { dispatch, rejectWithValue }) => {
-    const { ticketId, content } = comment
+    const { ticketId, content } = comment;
     const token = getToken();
 
     try {
@@ -127,31 +141,31 @@ export const postTicketComment = createAsyncThunk(
           variables: { input: { ticketId, content } },
         }),
       });
- 
+
       const data = await response.json();
 
       if (data.errors) {
-        const error = data.errors[0].message
-        toast.error(error)
+        const error = data.errors[0].message;
+        toast.error(error);
         throw new Error(error);
       }
 
       dispatch(addComment(data.data.addComment));
-      toast.success("Comment Added!")
+      toast.success("Comment Added!");
       return data.data.addComment;
     } catch (error) {
       return rejectWithValue(error.message);
-    } 
+    }
     // finally {
     //   dispatch(handleLoading(false));
     // }
   }
-)
+);
 
 export const closeTicket = createAsyncThunk(
   "update/ticket",
   async (ticketUpdate, { dispatch, rejectWithValue }) => {
-    const { ticketId, status } = ticketUpdate
+    const { ticketId, status } = ticketUpdate;
     const token = getToken();
 
     dispatch(handleLoading(true));
@@ -172,13 +186,13 @@ export const closeTicket = createAsyncThunk(
       const data = await response.json();
 
       if (data.errors) {
-        const error = data.errors[0].message
-        toast.error(error)
-        throw new Error(error)
+        const error = data.errors[0].message;
+        toast.error(error);
+        throw new Error(error);
       }
 
       dispatch(updateTicket(data.data.updateTicketStatus));
-      toast.success("Ticked closed!")
+      toast.success("Ticked closed!");
       return data.data.updateTicketStatus;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -186,4 +200,34 @@ export const closeTicket = createAsyncThunk(
       dispatch(handleLoading(false));
     }
   }
-)
+);
+
+export const downloadClosedTickets = createAsyncThunk(
+  "download/closed_tickets",
+  async (_, { rejectWithValue }) => {
+    const token = getToken();
+
+    try {
+      const response = await fetch(`${baseURL}/graphql`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
+        },
+        body: JSON.stringify({
+          query: csvQuery,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.errors) {
+        return rejectWithValue(data.errors[0].message);
+      }
+
+      return data.data.csv;
+    } catch (error) {
+      return rejectWithValue(error.message || "Download failed");
+    }
+  }
+);

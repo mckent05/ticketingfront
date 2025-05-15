@@ -57,11 +57,19 @@ const TicketsTable = ({ tickets, role }) => {
               >
                 <TableCell>{ticket.id}</TableCell>
                 <TableCell>{ticket.title}</TableCell>
-                <TableCell>{ticket.complaint}</TableCell>
+                <TableCell
+                  sx={{
+                    textOverflow: "ellipsis",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    maxWidth: "150px",
+                    width: "35%",
+                  }}
+                >
+                  {ticket.complaint}
+                </TableCell>
                 {role === "agent" && (
-                  <TableCell>
-                    {ticket.customer.username}
-                  </TableCell>
+                  <TableCell>{ticket.customer.username}</TableCell>
                 )}
                 <TableCell>
                   {ticket.agent ? ticket.agent.username : "None"}

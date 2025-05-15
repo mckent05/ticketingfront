@@ -17,7 +17,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 const getStatusColor = (status) => {
   switch (status) {
     case "open":
-      return "#d4edda"; 
+      return "#d4edda";
     case "in_progress":
       return "#fff3cd";
     case "closed":
@@ -39,8 +39,7 @@ const TicketDetails = () => {
   }, [dispatch, id]);
 
   const handleCloseTicket = () => {
-    if(ticket.agent.id !== user.id)
-    dispatch(closeTicket({ ticketId: id, status: "closed"}));
+    dispatch(closeTicket({ ticketId: id, status: "closed" }));
   };
 
   return (
@@ -98,7 +97,26 @@ const TicketDetails = () => {
             <Typography variant="h6" color="primary">
               Complaint:
             </Typography>
-            <Typography variant="body1">{ticket.complaint}</Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                whiteSpace: "wrap",
+                width: "100%",
+                wordWrap: "break-word",
+              }}
+            >
+              {ticket.complaint}
+            </Typography>
+          </Box>
+          <Box mb={2}>
+            <Typography variant="h6" color="primary">
+              Assigned Agent:
+            </Typography>
+            <Typography variant="body1">
+              {ticket.agent
+                ? `${ticket.agent.username}-${ticket.agent.email}`
+                : "None"}
+            </Typography>
           </Box>
           <Box mb={2}>
             <Typography variant="h6" color="primary">
@@ -115,11 +133,31 @@ const TicketDetails = () => {
                 fontWeight: 500,
               }}
             >
-              {ticket.status === "in_progress"
-                ? "In Progress"
-                : ticket.status}
+              {ticket.status === "in_progress" ? "In Progress" : ticket.status}
             </Typography>
           </Box>
+          {ticket.image && (
+            <Box mb={2}>
+              <Typography variant="h6" color="primary">
+                Attachment:
+              </Typography>
+              <a href={ticket.image} target="_blank" rel="noopener noreferrer">
+                <Box
+                  component="img"
+                  src={ticket.image}
+                  alt="Ticket attachment"
+                  sx={{
+                    mt: 1,
+                    maxWidth: "100%",
+                    maxHeight: 300,
+                    borderRadius: 2,
+                    objectFit: "contain",
+                    border: "1px solid #ccc",
+                  }}
+                />
+              </a>
+            </Box>
+          )}
         </Paper>
       )}
 
@@ -131,9 +169,7 @@ const TicketDetails = () => {
       </Box>
 
       <Box mt={4}>
-       {
-        ticket.status !=="closed" && <CommentBox ticketId={id} />
-       } 
+        {ticket.status !== "closed" && <CommentBox ticketId={id} />}
       </Box>
     </Container>
   );

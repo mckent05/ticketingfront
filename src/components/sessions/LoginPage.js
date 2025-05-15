@@ -1,91 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { makeStyles } from "@mui/styles";
-import Input from "./Input";
-import Navigation from "./Navigation";
-import SideBanner from "./SideBanner";
-import Submit from "./SubmitBtn";
-import Title from "./Title";
 import { Grid, Box, Typography } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { handleSignIn } from "../../store/sessions/thunkCreators";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexDirection: "column",
-    margin: 0,
-    position: "relative",
-    width: "100vw",
-    height: "auto",
-    backgroundColor: "#fff",
-    // [theme.breakpoints.up("lg")]: {
-    //   flexDirection: "row",
-    //   height: "100vh",
-    // },
-  },
-  formCont: {
-    width: "100%",
-    height: "70vh",
-    display: "flex",
-    flexDirection: "column",
-    marginTop: 5,
-    rowGap: 20,
-    // [theme.breakpoints.up("lg")]: {
-    //   width: "58%",
-    //   height: "95%",
-    // },
-  },
-  form: {
-    position: "relative",
-    width: "90%",
-    margin: "0 auto",
-    // [theme.breakpoints.up("md")]: {
-    //   width: "55%",
-    //   padding: 15,
-    // },
-  },
-  input: {
-    position: "relative",
-    width: "100%",
-    marginBottom: 8,
-    "& .MuiFilledInput-root": {
-      backgroundColor: "#fff",
-      color: "#000000",
-    },
-    // [theme.breakpoints.up("lg")]: {
-    //   marginBottom: 15,
-    // },
-    "& .MuiFormLabel-root": {
-      fontFamily: "QuickSand, sans-serif",
-      fontStyle: "normal",
-      fontWeight: 300,
-      fontSize: 20,
-    },
-    "& .MuiTypography-root": {
-      position: "absolute",
-      right: 10,
-      bottom: "35%",
-      color: "#f9a109",
-      fontFamily: "QuickSand, sans-serif",
-      fontStyle: "normal",
-      fontWeight: 600,
-      fontSize: 12,
-    },
-    account: {
-      width: "100%",
-      display: "flex",
-      flexDirection: "column",
-      position: "relative",
-    },
-  },
-}));
+import Input from "./Input";
+import Navigation from "./Navigation";
+import Submit from "./SubmitBtn";
+import Title from "./Title";
 
 const LoginPage = ({ loading, signedIn }) => {
-  const classes = useStyles();
-
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   const [userDetails, setUserDetails] = useState({
@@ -102,9 +26,9 @@ const LoginPage = ({ loading, signedIn }) => {
     e.preventDefault();
     const result = await dispatch(handleSignIn(userDetails));
     if (handleSignIn.fulfilled.match(result)) {
-      navigate("/"); // login success
+      navigate("/");
     } else {
-      console.error(result.payload); // login failed
+      console.error(result.payload);
     }
   };
 
@@ -112,42 +36,79 @@ const LoginPage = ({ loading, signedIn }) => {
     if (signedIn) {
       navigate("/");
     }
-  });
+  }, [signedIn, navigate]);
 
   return (
-    <Grid container className={classes.root}>
-      <SideBanner />
-      <Box className={classes.formCont}>
-        <Box className={classes.account}>
+    <Grid
+      container
+      sx={{ width: "100vw", minHeight: "100vh", backgroundColor: "#fff" }}
+    >
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          rowGap: 4,
+          mt: 5,
+          px: 2,
+        }}
+      >
+        <Box>
           <Navigation
-            text="Dont have an account yet?"
+            text="Don't have an account yet?"
             push="register"
             btnText="Create an account"
           />
         </Box>
-        <form onSubmit={signIn} className={classes.form}>
+
+        <Box
+          component="form"
+          onSubmit={signIn}
+          sx={{
+            width: { xs: "90%", md: "55%" },
+            mx: "auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+          }}
+        >
           <Title text="Welcome!" />
-          <Grid>
+
+          <Input
+            ariaLabel="email"
+            label="Email"
+            name="email"
+            type="text"
+            handle={handleInput}
+          />
+
+          <Box sx={{ position: "relative" }}>
             <Input
-              ariaLabel="email"
-              label="Email"
-              name="email"
-              type="text"
+              label="Password"
+              ariaLabel="password"
+              type="password"
+              name="password"
               handle={handleInput}
             />
-            <Box className={classes.input} required>
-              <Input
-                label="Password"
-                ariaLabel="password"
-                type="password"
-                name="password"
-                handle={handleInput}
-              />
-              <Typography>Forgot?</Typography>
-            </Box>
-            <Submit title="Login" loading={loading} />
-          </Grid>
-        </form>
+            <Typography
+              variant="body2"
+              sx={{
+                position: "absolute",
+                right: 10,
+                bottom: "35%",
+                color: "#f9a109",
+                fontWeight: 600,
+                fontSize: 12,
+                cursor: "pointer",
+              }}
+            >
+              Forgot?
+            </Typography>
+          </Box>
+
+          <Submit title="Login" loading={loading} />
+        </Box>
       </Box>
     </Grid>
   );
