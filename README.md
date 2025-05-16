@@ -201,11 +201,11 @@ Login page                             |  Signup page
 
 Customer Dashboard page view           |  Request Details page
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_Request_details.PNG)
+![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_ticket_details.PNG)
 
 New Request page view                   |  Comments section view
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_new-Request.PNG)      |  ![](./project_preview/tix_comments.PNG) 
+![](./project_preview/tix_new-ticket.PNG)      |  ![](./project_preview/tix_comments.PNG) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
