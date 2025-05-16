@@ -23,13 +23,13 @@ REQUIRED SECTIONS:
 OPTIONAL SECTIONS:
 - FAQ
 
-After you're finished please remove all the comments and instructions!
+After you're finished, please remove all the comments and instructions!
 
 For more information on the importance of a professional README for your repositories: https://github.com/microverseinc/curriculum-transversal-skills/blob/main/documentation/articles/readme_best_practices.md
 -->
 
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <!-- You are encouraged to replace this logo with your own! Otherwise, you can also remove it. -->
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
@@ -116,7 +116,7 @@ For more information on the importance of a professional README for your reposit
 
 ### Key Features <a name="key-features"></a>
 
-The system was designed toimplement the following specifications:
+The system was designed to implement the following specifications:
 
 For customers:
 1. Users can create support requests/tickets and view the status of previous requests/tickets.
@@ -125,17 +125,17 @@ For customers:
 
 For support agents
 1. Agents can view and respond to support requests
-2. Agen can export CSV reports for closed tickets in the last one month
-3. Agents receive daily reminder email containing a list of open tickets
+2. Agen can export CSV reports for closed tickets in the last month
+3. Agents receive a daily reminder email containing a list of open tickets
 
 Some other functional requirements include: 
-1. Users (Agents or customers) need to sign up before using the portal.
-2. Users can sign up as an agent or customer
+1. Users (Agents or customers) must sign up before using the portal.
+2. Users can sign up as an agent or a customer
 3. The comment section is a follow-up conversation between a customer and a support agent. 
- - A customer can only comment on a ticket if and only if a support agent has commented on the ticket.
+ - A customer can only comment on a ticket if and only if a support agent has commented.
  - The first agent to comment on the ticket is automatically assigned that ticket.
- - Only an angemt assigned to the ticket can close the ticket.
- - When a ticket is close by the agent, no further comments can be made on the ticket.
+ - Only an agent assigned to the ticket can close the ticket.
+ - When a ticket is closed by the agent, no further comments can be made on the ticket.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +157,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+To run this project, you need:
 
 ### Setup
 
@@ -171,7 +171,7 @@ Clone this repository to your desired folder:
  ```sh
   cd ticketingfront
 ```
-- Open your IDE, for VS code run:
+- Open your IDE, for VS Code run:
 ```sh
 code.
 ```
@@ -231,8 +231,8 @@ To run tests, run the following command:
 
 > Describe 1 - 3 features you will add to the project.
 
-- Use a web-socket to make the chat between the customer and agent be in real-time, this would ensure a better user-experience
-- Tickets can be re-opened even after it has been closed
+- Use a web-socket to make the chat between the customer and agent be in real-time, which would ensure a better user experience
+- Tickets can be reopened even after it has been closed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -250,7 +250,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project pleasedrop a like or reach out to me on any of my social media pages.
+If you like this project, please drop a like or reach out to me on any of my social media pages.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -258,7 +258,7 @@ If you like this project pleasedrop a like or reach out to me on any of my socia
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the Tix Africa team for the opportunity to work on this assessment and I look forward to their review.
+I would like to thank the Tix Africa team for the opportunity to work on this assessment, and I look forward to their review.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
