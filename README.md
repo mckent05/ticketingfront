@@ -62,8 +62,8 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Customer Sipport Ticket Portal <a name="about-project"></a>
-- This simple portal is a simpleweb application that allows customers to place support requests and support agents to process the requests.
+# 📖 Customer Support Request Portal <a name="about-project"></a>
+- This simple portal is a simple web application that allows customers to place support requests and support agents to process the requests.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -119,23 +119,23 @@ For more information on the importance of a professional README for your reposit
 The system was designed to implement the following specifications:
 
 For customers:
-1. Users can create support requests/tickets and view the status of previous requests/tickets.
+1. Users can create support requests/Requests and view the status of previous requests/Requests.
 2. Users can reply to updates for the previous requests.  
 3. Users can upload images.
 
 For support agents
 1. Agents can view and respond to support requests
-2. Agen can export CSV reports for closed tickets in the last month
-3. Agents receive a daily reminder email containing a list of open tickets
+2. Agen can export CSV reports for closed Requests in the last month
+3. Agents receive a daily reminder email containing a list of open Requests
 
 Some other functional requirements include: 
 1. Users (Agents or customers) must sign up before using the portal.
 2. Users can sign up as an agent or a customer
 3. The comment section is a follow-up conversation between a customer and a support agent. 
- - A customer can only comment on a ticket if and only if a support agent has commented.
- - The first agent to comment on the ticket is automatically assigned that ticket.
- - Only an agent assigned to the ticket can close the ticket.
- - When a ticket is closed by the agent, no further comments can be made on the ticket.
+ - A customer can only comment on a Request if and only if a support agent has commented.
+ - The first agent to comment on the Request is automatically assigned that Request.
+ - Only an agent assigned to the Request can close the Request.
+ - When a Request is closed by the agent, no further comments can be made on the Request.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -145,7 +145,7 @@ Some other functional requirements include:
 
 
 - [Live Demo](https://wande-support-portal.netlify.app/)
-- [Backend Repository](https://github.com/mckent05/ticketing_backend)
+- [Backend Repository](https://github.com/mckent05/Requesting_backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,12 +164,12 @@ To run this project, you need:
 Clone this repository to your desired folder:
 - To get started, open your command prompt or bash terminal and run:
 ```sh
-  git clone https://github.com/mckent05/ticketingfront
+  git clone https://github.com/mckent05/Requestingfront
 ```
 
 - Next, navigate to the repository folder you just cloned by running the command:
  ```sh
-  cd ticketingfront
+  cd Requestingfront
 ```
 - Open your IDE, for VS Code run:
 ```sh
@@ -208,13 +208,13 @@ Login page                             |  Signup page
 :---------------------------------------:|:---------------------------------------:
 ![](./project_preview/tix_siginin.PNG)       |  ![](./project_preview/tix_register.PNG) 
 
-Customer Dashboard page view           |  Ticket Details page
+Customer Dashboard page view           |  Request Details page
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_ticket_details.PNG)
+![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_Request_details.PNG)
 
-New Ticket page view                   |  Comments section view
+New Request page view                   |  Comments section view
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_new-ticket.PNG)      |  ![](./project_preview/tix_comments.PNG) 
+![](./project_preview/tix_new-Request.PNG)      |  ![](./project_preview/tix_comments.PNG) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,7 +240,7 @@ New Ticket page view                   |  Comments section view
 > Describe 1 - 3 features you will add to the project.
 
 - Use a web-socket to make the chat between the customer and agent be in real-time, which would ensure a better user experience
-- Tickets can be reopened even after it has been closed
+- Requests can be reopened even after it has been closed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
