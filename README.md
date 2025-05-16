@@ -204,9 +204,17 @@ To run tests, run the following command:
 
 ### USER INTERFACE
 
-- 
+Login page                             |  Signup page
+:---------------------------------------:|:---------------------------------------:
+![](./project preview/tix_siginin.png)       |  ![](./project preview/tix_register.png) 
 
+Customer Dashboard page view           |  Ticket Details page
+:---------------------------------------:|:---------------------------------------:
+![](./project preview/tix_customerdashboard.png)      |  ![](./projectpreview/Tix_ticket_details.png)
 
+New Ticket page view                   |  Comments section view
+:---------------------------------------:|:---------------------------------------:
+![](./project preview/tix_new-ticket.png)      |  ![](./project preview/tix_comments.png) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
