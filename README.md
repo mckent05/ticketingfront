@@ -203,11 +203,11 @@ Login page                             |  Signup page
 
 Customer Dashboard page view           |  Request Details page
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_Request_details.PNG)
+![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_ticket_details.PNG)
 
 New Request page view                   |  Comments section view
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_new-Request.PNG)      |  ![](./project_preview/tix_comments.PNG) 
+![](./project_preview/tix_new-ticket.PNG)      |  ![](./project_preview/tix_comments.PNG) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -232,7 +232,7 @@ New Request page view                   |  Comments section view
 
 > Describe 1 - 3 features you will add to the project.
 
-- Use a web-socket to make the chat between the customer and agent be in real-time, which would ensure a better user experience
+- Use a web-socket to make the chat between the customer and agent in real-time, which would ensure a better user experience
 - Requests can be reopened even after it has been closed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
