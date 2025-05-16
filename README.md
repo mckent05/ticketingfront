@@ -206,15 +206,15 @@ To run tests, run the following command:
 
 Login page                             |  Signup page
 :---------------------------------------:|:---------------------------------------:
-![](./project preview/tix_siginin.png)       |  ![](./project preview/tix_register.png) 
+![](./project_preview/tix_siginin.PNG)       |  ![](./project_preview/tix_register.PNG) 
 
 Customer Dashboard page view           |  Ticket Details page
 :---------------------------------------:|:---------------------------------------:
-![](./project preview/tix_customerdashboard.png)      |  ![](./projectpreview/Tix_ticket_details.png)
+![](./project_preview/tix_customerdashboard.PNG)      |  ![](./project_preview/Tix_ticket_details.PNG)
 
 New Ticket page view                   |  Comments section view
 :---------------------------------------:|:---------------------------------------:
-![](./project preview/tix_new-ticket.png)      |  ![](./project preview/tix_comments.png) 
+![](./project_preview/tix_new-ticket.PNG)      |  ![](./project_preview/tix_comments.PNG) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
