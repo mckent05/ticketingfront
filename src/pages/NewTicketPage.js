@@ -130,9 +130,6 @@ const NewTicketPage = () => {
                   hidden
                 />
               </Button>
-              <Typography variant="caption" display="block" mt={1}>
-                No file chosen
-              </Typography>
             </Grid>
 
             <Grid
