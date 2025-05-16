@@ -149,18 +149,20 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 To run this project, you need:
+- An IDE installed on your system,.preferrably VS Code
+- PostgreSQL DB installed
 
 ### Setup
 
 Clone this repository to your desired folder:
 - To get started, open your command prompt or bash terminal and run:
 ```sh
-  git clone https://github.com/mckent05/Requestingfront
+  git clone https://github.com/mckent05/ticketingfront
 ```
 
 - Next, navigate to the repository folder you just cloned by running the command:
  ```sh
-  cd Requestingfront
+  cd ticketingfront
 ```
 - Open your IDE, for VS Code run:
 ```sh
