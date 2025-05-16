@@ -135,7 +135,7 @@ Some other functional requirements include:
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo](https://wande-support-portal.netlify.app/)
+- [Live Demo](https://ticketingfront-b44hlt1fq-topes-projects.vercel.app/)
 - [Backend Repository](https://github.com/mckent05/Requesting_backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -149,18 +149,20 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 To run this project, you need:
+- An IDE installed on your system,.preferrably VS Code
+- PostgreSQL DB installed
 
 ### Setup
 
 Clone this repository to your desired folder:
 - To get started, open your command prompt or bash terminal and run:
 ```sh
-  git clone https://github.com/mckent05/Requestingfront
+  git clone https://github.com/mckent05/ticketingfront
 ```
 
 - Next, navigate to the repository folder you just cloned by running the command:
  ```sh
-  cd Requestingfront
+  cd ticketingfront
 ```
 - Open your IDE, for VS Code run:
 ```sh
@@ -230,7 +232,7 @@ New Request page view                   |  Comments section view
 
 > Describe 1 - 3 features you will add to the project.
 
-- Use a web-socket to make the chat between the customer and agent be in real-time, which would ensure a better user experience
+- Use a web-socket to make the chat between the customer and agent in real-time, which would ensure a better user experience
 - Requests can be reopened even after it has been closed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
