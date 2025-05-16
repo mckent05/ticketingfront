@@ -52,7 +52,6 @@ For more information on the importance of a professional README for your reposit
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -63,29 +62,46 @@ For more information on the importance of a professional README for your reposit
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Customer Sipport Ticket Portal <a name="about-project"></a>
+- This simple portal is a simpleweb application that allows customers to place support requests and support agents to process the requests.
 
-> Describe your project in 1 or 2 sentences.
-
-**[your_project__name]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
   <summary>Client</summary>
+   <ul>
+    <li><a href="https://reactjs.org/">JavaScript</a></li>
+  </ul>
   <ul>
     <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+   <ul>
+    <li><a href="https://redux.js.org/">Redux</a></li>
+  </ul>
+   <ul>
+    <li><a href="https://redux-toolkit.js.org/">Redux Tool Kit</a></li>
+  </ul>
+   <ul>
+    <li><a href="https://cloudinary.com/">Cloudinary</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://graphql.org/">GraphQL</a></li>
+  </ul>
+  <ul>
+    <li><a href="https://github.com/waiting-for-dev/devise-jwt">Devise JWT</a></li>
   </ul>
 </details>
 
@@ -100,11 +116,26 @@ For more information on the importance of a professional README for your reposit
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+The system was designed toimplement the following specifications:
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+For customers:
+1. Users can create support requests/tickets and view the status of previous requests/tickets.
+2. Users can reply to updates for the previous requests.  
+3. Users can upload images.
+
+For support agents
+1. Agents can view and respond to support requests
+2. Agen can export CSV reports for closed tickets in the last one month
+3. Agents receive daily reminder email containing a list of open tickets
+
+Some other functional requirements include: 
+1. Users (Agents or customers) need to sign up before using the portal.
+2. Users can sign up as an agent or customer
+3. The comment section is a follow-up conversation between a customer and a support agent. 
+ - A customer can only comment on a ticket if and only if a support agent has commented on the ticket.
+ - The first agent to comment on the ticket is automatically assigned that ticket.
+ - Only an angemt assigned to the ticket can close the ticket.
+ - When a ticket is close by the agent, no further comments can be made on the ticket.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -112,9 +143,9 @@ For more information on the importance of a professional README for your reposit
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
-- [Live Demo Link](https://google.com)
+- [Live Demo](https://wande-support-portal.netlify.app/)
+- [Backend Repository](https://github.com/mckent05/ticketing_backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,83 +153,60 @@ For more information on the importance of a professional README for your reposit
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
 ### Setup
 
 Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
+- To get started, open your command prompt or bash terminal and run:
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/mckent05/ticketingfront
 ```
---->
+
+- Next, navigate to the repository folder you just cloned by running the command:
+ ```sh
+  cd ticketingfront
+```
+- Open your IDE, for VS code run:
+```sh
+code.
+```
 
 ### Install
 
 Install this project with:
 
-<!--
-Example command:
-
+- Install the dependencies/libraries for this application:
 ```sh
-  cd my-project
-  gem install
+  npm install
 ```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
+- Finally, run the server:
 ```sh
-  rails server
+  npm start
 ```
---->
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  npm tests
 ```
---->
 
-### Deployment
+### USER INTERFACE
 
-You can deploy this project using:
+- 
 
-<!--
-Example:
 
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,15 +218,10 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/mckent05)
+- Twitter: [@twitterhandle](https://twitter.com/mckent05)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/temitopeakinlade)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -228,9 +231,8 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- Use a web-socket to make the chat between the customer and agent be in real-time, this would ensure a better user-experience
+- Tickets can be re-opened even after it has been closed
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -248,9 +250,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project pleasedrop a like or reach out to me on any of my social media pages.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -258,9 +258,7 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank the Tix Africa team for the opportunity to work on this assessment and I look forward to their review.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
