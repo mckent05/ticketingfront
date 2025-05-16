@@ -135,7 +135,7 @@ Some other functional requirements include:
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo](https://ticketingfront-b44hlt1fq-topes-projects.vercel.app/)
+- [Live Demo](https://ticketingfront.vercel.app/)
 - [Backend Repository](https://github.com/mckent05/Requesting_backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
