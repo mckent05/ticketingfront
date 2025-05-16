@@ -206,7 +206,7 @@ To run tests, run the following command:
 
 Login page                             |  Signup page
 :---------------------------------------:|:---------------------------------------:
-![](./project_preview/tix_siginin.PNG)       |  ![](./project_preview/tix_register.PNG) 
+![](./project_preview/tix_signin.PNG)       |  ![](./project_preview/tix_register.PNG) 
 
 Customer Dashboard page view           |  Ticket Details page
 :---------------------------------------:|:---------------------------------------:
