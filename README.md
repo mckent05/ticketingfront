@@ -136,7 +136,7 @@ Some other functional requirements include:
 
 
 - [Live Demo](https://ticketingfront.vercel.app/)
-- [Backend Repository](https://github.com/mckent05/Requesting_backend)
+- [Backend Repository](https://github.com/mckent05/ticketing_backend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
